@@ -2,6 +2,7 @@ package com.alura.ForoHub.domain.topico;
 
 
 import com.alura.ForoHub.domain.usuario.Status;
+import com.alura.ForoHub.domain.usuario.Usuario;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -27,8 +28,21 @@ public class Topico {
     private Status status;
 
     @JoinColumn(name="usuario_id")
-    private String autor;
+    private Usuario autor;
+
     private String curso;
+
+
+    public Topico(DatosRegistroTopico datosRegistroTopico) {
+        this.titulo = datosRegistroTopico.titulo();
+        this.mensaje = datosRegistroTopico.mensaje();
+        this.autor = datosRegistroTopico.usuario();
+        this.curso = datosRegistroTopico.curso();
+    }
+
+    public Topico() {
+
+    }
 
 
     //Getters and Setters
@@ -72,11 +86,11 @@ public class Topico {
         this.status = status;
     }
 
-    public String getAutor() {
+    public Usuario getAutor() {
         return autor;
     }
 
-    public void setAutor(String autor) {
+    public void setAutor(Usuario autor) {
         this.autor = autor;
     }
 
