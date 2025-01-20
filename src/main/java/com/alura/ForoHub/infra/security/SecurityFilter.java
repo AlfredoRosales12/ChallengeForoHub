@@ -26,8 +26,10 @@ public class SecurityFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         //Obtener lso tokens
         var authHeader=request.getHeader("Authorization");//.replace("Bearer ", "");
+        //System.out.println("header:"+authHeader.toString());
         if(authHeader!=null){
             var token=authHeader.replace("Bearer ", "");
+            //System.out.println("pasee auth");
             var subject=tokenService.getSubject(token);
             if(subject!=null){
                 //token válido

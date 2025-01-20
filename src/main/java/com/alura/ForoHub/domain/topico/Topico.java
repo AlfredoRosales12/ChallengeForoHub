@@ -3,7 +3,9 @@ package com.alura.ForoHub.domain.topico;
 
 import com.alura.ForoHub.domain.usuario.Status;
 import com.alura.ForoHub.domain.usuario.Usuario;
+import com.alura.ForoHub.domain.usuario.UsuarioRepository;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 
 import java.time.LocalDateTime;
 
@@ -22,11 +24,13 @@ public class Topico {
     @Column (unique = true)
     private String mensaje;
 
+
     private LocalDateTime fechaDeCreacion;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @ManyToOne
     @JoinColumn(name="usuario_id")
     private Usuario autor;
 
@@ -36,11 +40,21 @@ public class Topico {
     public Topico(DatosRegistroTopico datosRegistroTopico) {
         this.titulo = datosRegistroTopico.titulo();
         this.mensaje = datosRegistroTopico.mensaje();
-        this.autor = datosRegistroTopico.usuario();
+
         this.curso = datosRegistroTopico.curso();
+        this.fechaDeCreacion=LocalDateTime.now();
+        this.status=Status.ACTIVO;
     }
 
-    public Topico() {
+    public Topico() { }
+
+    public Topico( DatosRegistroTopico datosRegistroTopico, Usuario usuarioActual) {
+        this.titulo = datosRegistroTopico.titulo();
+        this.mensaje = datosRegistroTopico.mensaje();
+        this.autor= usuarioActual;
+        this.curso = datosRegistroTopico.curso();
+        this.fechaDeCreacion=LocalDateTime.now();
+        this.status=Status.ACTIVO;
 
     }
 

@@ -12,9 +12,6 @@ public record DatosRegistroTopico(
         @NotBlank
         String mensaje,
 
-        @NotNull
-        Usuario usuario,
-
         @NotBlank
         String curso
 
