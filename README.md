@@ -61,23 +61,23 @@ Ejemplo de registro manual:
 5. Utiliza alguna herramienta de pruebas de API como Insomnia o Postman
 Ejemplo:
 
-![Imagen de la pagina](assets/img/readme/inicio_insomnia.png)
+![Imagen de la pagina](src/assets/img/readme/inicio_insomnia.png)
 
 Al utilizar alguna herramienta de prueba asegurate de autenticarte antes de poder hacer alguna consulta o registro a la API.
 al autenticarte la API te generará un token el cual debras ingresar enla seccion auth y ahí pondras Bearer token.
 
-![Imagen de la pagina](assets/img/readme/ingresarToken.png)
+![Imagen de la pagina](src/assets/img/readme/ingresarToken.png)
 
 
 ## Ejemplos de Uso
 
 1. Autenticación de usuario:
 
-![Imagen de la pagina](assets/img/readme/autenticacion_token.png)
+![Imagen de la pagina](src/assets/img/readme/autenticacion_token.png)
 
 2. Registro de topico:
 
-![Imagen de la pagina](assets/img/readme/registroTopico.png)
+![Imagen de la pagina](src/assets/img/readme/registroTopico.png)
 
 
 
