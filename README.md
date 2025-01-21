@@ -107,7 +107,7 @@ Las observaciones, contribuciones,etc.  son bienvenidas. Si encuentras algún er
 
 Este proyecto está bajo la licencia OpenSource, Creado por Alfredo Rosales [@AlfredoRosales12](https://github.com/AlfredoRosales12)
 
-¡Diviértete encriptando!
+¡Diviértete con la API!
 
 ## :iphone: Contact
 
