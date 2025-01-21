@@ -48,13 +48,28 @@ public class TopicoController {
         return ResponseEntity.ok(page);
     }
 
+    // Listado de topicos por ID
+    @GetMapping("{id}")
+    public ResponseEntity listadoTopicosPorId(@PathVariable Long id){
+        var topicoEncontrado = topicoRepository.findById(id);
+        if (topicoEncontrado.isPresent()){
+            var topico = topicoEncontrado.get();
+            var datosRespuesta = new DatosRespuestaTopico(topico.getId(), topico.getTitulo(), topico.getMensaje(),
+                    topico.getFechaDeCreacion(), topico.getAutor().getNombre(), topico.getCurso());
+            return ResponseEntity.ok(datosRespuesta);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 
     // Actualizar topico
     @PutMapping("/actualizar")
     @Transactional
     public ResponseEntity actualizarTopico(@RequestBody @Valid DatosActualizarTopico datosActualizarTopico) {
-        System.out.println("Pase");
-        System.out.println(datosActualizarTopico.id());
+        //System.out.println("Pase");
+        //System.out.println(datosActualizarTopico.id());
         var topicoEncontrado = topicoRepository.findById(datosActualizarTopico.id());
 
         if (topicoEncontrado.isPresent()){
@@ -69,5 +84,17 @@ public class TopicoController {
         }
     }
 
-   
+    // Borrar un topico por el ID pasado por el usuario
+    @DeleteMapping("/borrar/{id}")
+    @Transactional
+    public ResponseEntity eliminarTopico(@PathVariable Long id){
+        var topicoEncontrado = topicoRepository.findById(id);
+        if (topicoEncontrado.isPresent()){
+            topicoRepository.deleteById(id);
+            return ResponseEntity.ok("Topico con id:"+ id+" eliminado exitosamente");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
 }
