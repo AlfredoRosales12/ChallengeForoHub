@@ -31,6 +31,18 @@ de manera eficiente y siguiendo las mejores prácticas del modelo REST.
 
 **Base de Datos:** Utilización de una base de datos relacional (MySQL en especifico la app de MySQL Workbench).
 
+## :scroll: Funcionalidades
+
+**Crear un nuevo tópico:** Los usuarios pueden crear nuevos tópicos proporcionando información relevante como el título y el contenido.
+
+**Mostrar todos los tópicos creados:** La API permite listar todos los tópicos almacenados en la base de datos.
+
+**Mostrar un tópico específico:** Los usuarios pueden consultar la información de un tópico específico utilizando su identificador.
+
+**Actualizar un tópico:** Es posible modificar la información de un tópico existente.
+
+**Eliminar un tópico:** Los usuarios pueden eliminar tópicos que ya no sean necesarios.
+
 
 ## :hammer_and_wrench: Instalación y Configuración
 
